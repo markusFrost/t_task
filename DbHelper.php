@@ -85,6 +85,11 @@ class DbHelper
                                    // echo $query." - ".var_dump($result)."</br>";
 				}				
 			}
+                        
+                        if (sizeof($item->calc_result ) == 0)
+                        {
+                            echo 'No codes';
+                        }
                         //echo "</br>";
 			
 			
