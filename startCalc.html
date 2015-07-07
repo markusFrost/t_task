@@ -3,6 +3,7 @@
  <head>
  
   <title>Add</title>
+  <script src="jquery-1.11.3.min.js"></script>
    <meta http-equiv="Content-Type" content="text/html; charset=cp1251"> 
   <style>
   .btn
@@ -13,19 +14,44 @@
  </head>
  <body>  
  
- <form action="startCalc.php" method="post">
-  <p> Введите развание расчётного проекта:<input type="text" name="name" id="name" value=""></p>
+     <form  id="f1" >
+  <p> Enter the name of project:<input type="text" name="name" id="name" value=""></p>
   
-  <p>Введите расчёт  <textarea name="calc_content" id="calc_content" cols="100pt" rows="20pt" ></textarea></p>
+  <p>Enter the calculation  <textarea name="calc_content" id="calc_content" cols="100pt" rows="20pt" ></textarea></p>
+  
+  <p>List of codes  <textarea name="calc_codes" id="calc_codes" cols="100pt" rows="10pt" ></textarea></p>
   
    
    
   </br>
   
 	<div display="inline-block">
-		<button class="btn" value="showCodes">Добавить в БД</button>
+		<button class="btn" value="showCodes">Add to DB</button>
    </div>
  </form>
+     
+     <p id="content_p"></p>
+     
+       <script type="text/javascript">
+            $("#f1").submit(function ()
+{
+    var str = $(this).serialize();
+    //alert(str);
+    $.ajax(
+            {
+                type: "POST",
+                url: "startCalc.php",
+                //contentType: "charset=utf-8",
+                data: str,
+                success: function (html) 
+                {
+                    $('#calc_codes').html(html);
+                }
+                
+            });
+            return false;
+});
+        </script> 
  
  
  

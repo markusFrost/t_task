@@ -1,28 +1,47 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <title>Select</title>
+        <script src="jquery-1.11.3.min.js"></script>
          <meta http-equiv="Content-Type" content="text/html; charset=cp1251"> 
        
     </head>
     <body>
         <br> 
 
-        <form action="choose_date.php" method="post">
+        <form  id="f2" action="choose_date.php" method="post">
         
-       Введите код: <input type="number" name="numb"    >
+       Enter the code : <input type="number" name="numb"    >
         <br>
-        <input type="radio" name="group2" value="Less"> Меньше <br>
-        <input type="radio" name="group2" value="Great"> Больше<br>
-        <input type="radio" name="group2" value="Equal" checked> Равно<br>
+        <input type="radio" name="group2" value="Less"> Less <br>
+        <input type="radio" name="group2" value="Large"> Large<br>
+        <input type="radio" name="group2" value="Equal" checked> Equal<br>
         <br>
-        <input type="submit" name="btn" value="Показать"/>
+        <input type="submit" name="btn" value="Display"/>
         
         </form>
+        
+        <p id="content_p"></p>
+        
+        <script type="text/javascript">
+            $("#f2").submit(function ()
+{
+    var str = $(this).serialize();
+    //alert(str);
+    $.ajax(
+            {
+                type: "POST",
+                url: "choose_date.php",
+                //contentType: "charset=utf-8",
+                data: str,
+                success: function (html) 
+                {
+                    $('#content_p').html(html);
+                }
+                
+            });
+            return false;
+});
+        </script> 
     </body>
 </html>

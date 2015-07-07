@@ -1,16 +1,6 @@
 <?php
   
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- * Description of DbHelper
- *
- * @author Андрей
- */
 class DbHelper 
 {
     public $sdb_name = "localhost";
@@ -79,7 +69,7 @@ class DbHelper
                         
                         if ( $result )
                         {
-                            echo "Information was successfully added"."</br>"."List of codes :";
+                           // echo "Information was successfully added"."</br>"."List of codes :";
                         }
 			
 			//echo "</br>";
@@ -95,7 +85,7 @@ class DbHelper
                                    // echo $query." - ".var_dump($result)."</br>";
 				}				
 			}
-                        echo "</br>";
+                        //echo "</br>";
 			
 			
 		}
@@ -104,12 +94,12 @@ class DbHelper
                 {
                      mysql_query("set names cp1251");
                       echo '<table border="1">';
-    echo '<caption>Таблица расчётов</caption>';
+   echo '<caption>Table of calculations</caption>';
     echo '<tr>';
      echo '<th>ID</th>';
-     echo '<th>Наименование проекта</th>';
-     echo '<th>Расчёт</th>';
-      echo '<th>Коды</th>';
+     echo '<th>Project name</th>';
+     echo '<th>Calculations</th>';
+      echo '<th>Codes</th>';
    echo '</tr>';
    
                     //select distinct calc_id from table_codes where code = 26
@@ -118,7 +108,7 @@ class DbHelper
                     {
                            $query1 = $query1." < ".$numb;
                     }
-                    else if ( strcmp($type, "Great") == 0)
+                    else if ( strcmp($type, "Large") == 0)
                     {
                              $query1 = $query1." > ".$numb;
                     }
@@ -170,12 +160,12 @@ class DbHelper
                 {
                      mysql_query("set names cp1251");
                     echo '<table border="1">';
-    echo '<caption>Таблица расчётов</caption>';
+    echo '<caption>Table of calculations</caption>';
     echo '<tr>';
      echo '<th>ID</th>';
-     echo '<th>Наименование проекта</th>';
-     echo '<th>Расчёт</th>';
-      echo '<th>Коды</th>';
+     echo '<th>Project name</th>';
+     echo '<th>Calculations</th>';
+      echo '<th>Codes</th>';
    echo '</tr>';
    
    
